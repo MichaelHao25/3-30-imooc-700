@@ -1,7 +1,13 @@
+body
+	min-width 1200px
 .w
 	max-width 1340px
 	width 100%
 	margin 0 auto
+	padding 0 15px
+	box-sizing border-box
+	@media(max-width 1400px)
+		min-width 1200px
 
 .header
 	box-shadow 6px 0 10px rgba(85,85,85,0.1)
@@ -11,17 +17,43 @@
 		height 100%
 		width 220px
 		background url('../img/图层554.jpg') center center no-repeat
+		transition 0.3s
+		@media(max-width 1400px)
+			padding-left 0
+			background-position left center
 	.nav
 		padding 20px 0
 		line-height 30px
 		font-size 14px
 		color #333
 		.item
+			&.hot
+				position relative
+				&:after
+					content "NEW"
+					position absolute
+					right -10px
+					top -15px
+					background #f21500
+					padding 3px
+					line-height 1
+					font-size 12px
+					color #fff
+					border-radius 5px 5px 5px 0
+				&:before
+					content ""
+					position absolute
+					right 19px
+					border 3px solid transparent
+					border-left-color #f21500
+					
 			&+.item
 				margin-left 30px
 	.search
 		margin-left 30px
 		padding 20px 0
+		@media(max-width 1330px)
+			display none
 		input
 			height 30px
 			width 240px
@@ -39,6 +71,9 @@
 		font-size 14px
 		color #000
 		line-height 70px
+		transition 0.3s
+		@media(max-width 1400px)
+			padding-right 0
 		.mr20
 			margin-right 20px
 		img
@@ -77,10 +112,14 @@
 					a
 						color #fff
 						transition 0.3s
+						background-image url('../img/车巴巴-全部车型.png')	
+						&.teacher
+							background-image url('../img/分期－教育_20.png')
+
 				a
 					display block
 					padding-left 24px
-					background url('../img/车巴巴-全部车型.png') left center no-repeat
+					background url('../img/车巴巴-全部车型_48.png') left center no-repeat
 					&.teacher
 						background-image url('../img/分期－教育.png')
 		.tabs-wrap
@@ -88,6 +127,8 @@
 			inset 6px 0 10px rgba(85,85,85,0.1)
 			padding 30px 30px 20px
 			background url('../img/组6.png') center bottom 15px no-repeat
+			&.no-more-icon
+				background none
 			.row
 				padding-bottom 6px
 				font-size 12px
@@ -115,6 +156,15 @@
 							background-color #00c091
 							color #fff
 							border-color #00c091
+			.base-info
+				margin 0 -30px
+				padding 20px 30px 0
+				font-size 14px
+				color #999
+				border-top 1px dashed #e0e0e0
+				h3
+					padding-bottom 10px
+					font-weight normal
 	.sort
 		font-size 14px
 		color #666
@@ -283,6 +333,7 @@
 			line-height 38px
 			text-align center
 			border 1px solid #eeeeee
+			border-radius 5px
 			&.num
 				transition 0.3s
 				&:hover
