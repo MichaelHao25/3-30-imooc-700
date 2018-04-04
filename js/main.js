@@ -1,4 +1,4 @@
-require.config({　　　　
+require.config({
 	paths: {
 		"jquery": "./jquery-1.12.4.min",
 		"swiper": "./swiper",
@@ -14,16 +14,9 @@ require.config({　　　　
 
 });
 require(['jquery'], function($) {
-	var media = document.createElement('style')
-	media.innerHTML = ".cp{cursor: pointer;}";
-	document.getElementsByTagName('head')[0].appendChild(media);
-	$('body *[href]').addClass('cp');
-	$('body *[href]').on('click', function() {
-		if ($(this).attr('target')) {
-			window.open($(this).attr('href'));
-		} else {
-			window.location.href = $(this).attr('href');
-		}
+	$('.main .play-window .video-wrap .video .video-control .share').on('mouseenter', function() {
+		$('.main .play-window .video-wrap .video .video-control .share .layout').fadeIn();
+	}).on('mouseleave', function() {
+		$('.main .play-window .video-wrap .video .video-control .share .layout').fadeOut();
 	});
-
 })
