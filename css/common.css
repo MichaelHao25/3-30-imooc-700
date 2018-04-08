@@ -30,6 +30,8 @@ body{
 	box-shadow: 6px 0 10px rgba(85, 85, 85, 0.1);
 	height: 70px;
 	background: #fff;
+	box-sizing: border-box;
+	min-width: 1200px;
 }
 .header.bg353940{
 	background: #353940;
@@ -58,14 +60,14 @@ body{
 
 @media (max-width: 1400px) {
 	.header .brand {
-		padding-left: 0;
+		padding: 0;
 		background-position: left center;
 	}
 }
 
 .header .nav {
-	padding: 20px 0;
-	line-height: 30px;
+	padding: 0;
+	line-height: 70px;
 	font-size: 14px;
 	color: #333;
 }
@@ -73,12 +75,20 @@ body{
 .header .nav .item.hot {
 	position: relative;
 }
-
+.header .nav .item a{
+	display: block;
+	padding: 0 8px;
+}
+.header .nav .item a:hover,
+.header .nav .item a.active{
+	background: #00c091;
+	color: #fff;
+}
 .header .nav .item.hot:after {
 	content: "NEW";
 	position: absolute;
 	right: -10px;
-	top: -15px;
+	top: 5px;
 	background: #f21500;
 	padding: 3px;
 	line-height: 1;
@@ -90,25 +100,20 @@ body{
 .header .nav .item.hot:before {
 	content: "";
 	position: absolute;
+	top: 20px;
 	right: 19px;
 	border: 3px solid transparent;
 	border-left-color: #f21500;
 }
 
 .header .nav .item+.item {
-	margin-left: 30px;
+	margin-left: 15px;
 }
-
 .header .search {
 	margin-left: 30px;
 	padding: 20px 0;
 }
 
-@media (max-width: 1330px) {
-	.header .search {
-		display: none;
-	}
-}
 
 .header .search{
 	font-size: 0;
@@ -134,6 +139,12 @@ body{
 	cursor: pointer;
 	background: #f3f3f3 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI0ODk2NDdCMzNGRDExRThBRkFERkRDMEY4OENERURDIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjI0ODk2NDdDMzNGRDExRThBRkFERkRDMEY4OENERURDIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjQ4OTY0NzkzM0ZEMTFFOEFGQURGREMwRjg4Q0RFREMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjQ4OTY0N0EzM0ZEMTFFOEFGQURGREMwRjg4Q0RFREMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4eaA/8AAABcElEQVR42pzTSyhEURzH8TPjehUrjwZFlMhCKY+ShUSklJJHWbFQUhb2YmNhOYqys6EksqGYLNigiDCzmFIkdh4LM1iI76n/0e001+tfn+693XN+99zz8IW2Q8pVaehAG8qRhCPsYAtxlaAc130pZtFitanDCDYxikuvkCKsowK3mJMR6PcNGEQ7CtGIeztEG5eAA/Th2tVGj2ARS6jEhIzoq/zSuR+PGLYCTIWlYwy9KLFDqmRC9fBPlXftYh+5qLVDAnJ/oX6uB7kG7BCzbAW/CMmQa8wOOcY7mpD3TYCeh2r56JkdcoI9ZGMKyR4jCMp86E13aC/xCyZRgwHkYAZX0qYYY2i1Qp/Ng8+17bswjyx5vpNrfoKRLcsGjJvfMbWKetmteqXSkSn303KewtJW75UFM9GO9YWonJNUOUspiOBV3t9gDWXoxgeGHI+VePPYNxHpvCJBPXjyq7/XuQRFzeF11P9KB3WiGRufAgwAddhMieDI0DUAAAAASUVORK5CYII=) center center no-repeat;
 	border-radius: 0 5px  5px 0;
+}
+
+@media (max-width: 1330px) {
+	.header .search input[type=text] {
+		width: 120px;
+	}
 }
 .header .search input::-webkit-input-placeholder {
 	color: #929da2;
@@ -348,7 +359,6 @@ body{
 	box-shadow: 4px 4px 8px rgba(0, 20, 84, 0.1),-4px -4px 8px rgba(0, 20, 84, 0.1);
 	overflow: hidden;
 	border-radius: 5px;
-	cursor: pointer;
 }
 
 .main .list .item:nth-child(4n+1) {
@@ -380,7 +390,7 @@ body{
 	opacity: 1;
 }
 
-.main .list .item:hover .user-info .name, .main .list .item.active .user-info .name, .main .list .item:hover .user-info p span, .main .list .item.active .user-info p span, .main .list .item:hover .user-info h3, .main .list .item.active .user-info h3 {
+.main .list .item:hover .user-info .name, .main .list .item.active .user-info .name, .main .list .item .user-info p.type a:hover, .main .list .item.active .user-info p span, .main .list .item:hover .user-info h3, .main .list .item.active .user-info h3 {
 	color: #00c091;
 }
 
@@ -645,6 +655,10 @@ body{
 	border-radius: 20px;
 	font-size: 0;
 	text-align: center;
+}
+.main .my-center .my-info .detalis .btn-group a:hover {
+	color: #fff;
+	background: #00c091;
 }
 
 .main .my-center .my-info .detalis .btn-group a+a {
